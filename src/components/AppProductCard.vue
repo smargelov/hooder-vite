@@ -46,7 +46,7 @@ article.product-card
 <style scoped lang="sass">
 .product-card
     display: grid
-    gap: 10px
+    gap: .8rem
     align-self: start
     position: relative
 

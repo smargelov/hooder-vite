@@ -22,36 +22,39 @@ const sizesList = sizes(item.value)
 
 <template lang="pug">
 article.product
-    picture.product__image
-        source(
-            :srcset="`/images/${item.images[0]}.webp`"
-            type="image/webp"
-        )
-        img(
-            :src="`/images/${item.images[0]}.jpg`"
-            :alt="item.brand"
-        )
-    h3.product__brand {{item.brand}}
-    .product__price {{item.price}} ₽
-        span.product__old-price (Розничная цена: {{fullPrice(item)}})
-    .product__sizes
-        .product__sizes-title Размеры:
-        .product__sizes-list
-            .product__size(
-                v-for="(size, key) in sizesList"
-                :key="key"
+    .product__slider
+        picture.product__image
+            source(
+                :srcset="`/images/${item.images[0]}.webp`"
+                type="image/webp"
             )
-                span.product__size-title {{key.toUpperCase()}}: 
-                span.product__size-count {{size}}
-    .product__model Модель: {{item.id}}
+            img(
+                :src="`/images/${item.images[0]}.jpg`"
+                :alt="item.brand"
+            )
+    .product__content
+        h3.product__brand {{item.brand}}
+        .product__price {{item.price}} ₽
+            span.product__old-price (Розничная цена: {{fullPrice(item)}})
+        .product__sizes
+            .product__sizes-title Размеры:
+            .product__sizes-list
+                .product__size(
+                    v-for="(size, key) in sizesList"
+                    :key="key"
+                )
+                    span.product__size-title {{key.toUpperCase()}}: 
+                    span.product__size-count {{size}}
+        .product__model Модель: {{item.id}}
 </template>
 
 
 <style scoped lang="sass">
 .product
     display: grid
-    gap: 10px
-    align-self: start
+    gap: 2rem
+    grid-template-columns: minmax(auto, 1fr) 1fr
+    justify-items: center
 
     &__image
         max-width: 100%
@@ -65,20 +68,30 @@ article.product
             display: block
             object-fit: cover
 
+    &__content
+        min-width: 45%
+        justify-self: start
+        display: grid
+        gap: 1rem
+        align-content: start
+
     &__brand
         margin-top: 0
         margin-bottom: 0
-        font-size: 1.5rem
+        font-size: 2rem
         color: $accent-color
 
     &__price
         font-weight: 700
         font-size: 1.8rem
         display: grid
+        grid-template-columns: repeat(2, auto)
+        gap: 1rem
+        align-items: center
 
     &__old-price
         font-weight: 200
-        font-size: .8rem
+        font-size: 1rem
         color: $accent-color
 
     &__sizes
