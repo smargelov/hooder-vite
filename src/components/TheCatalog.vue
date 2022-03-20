@@ -26,4 +26,9 @@ section.catalog
     display: grid
     gap: 2rem
     grid-template-columns: repeat(3, 1fr)
+    +md-block
+        grid-template-columns: repeat(2, 1fr)
+    +sm-block
+        grid-template-columns: 1fr
+
 </style>

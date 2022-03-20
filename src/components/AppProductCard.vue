@@ -1,8 +1,9 @@
 <script setup>
-import { defineProps, computed, ref } from 'vue'
+import {computed, defineProps} from 'vue'
+
 const props = defineProps({
     item: {
-        type:Object,
+        type: Object,
         required: true
     }
 })
@@ -11,7 +12,9 @@ const fullPrice = computed(() => {
 })
 const sizes = computed(() => {
     const obj = props.item.sizes
-    return Object.keys(props.item.sizes).filter(size => obj[size]).reduce((res, size) => (res[size] = obj[size], res), {})
+    return Object.keys(props.item.sizes)
+        .filter(size => obj[size])
+        .reduce((res, size) => (res[size] = obj[size], res), {})
 })
 
 </script>
@@ -29,25 +32,83 @@ article.product-card
         )
     h3.product-card__brand {{item.brand}}
     .product-card__price {{item.price}} ₽
-        span.product-card__old-price  (Розничная цена: {{fullPrice}})
+        span.product-card__old-price (Розничная цена: {{fullPrice}})
     .product-card__sizes
         .product-card__sizes-title Размеры:
-        .product-card__size(
-            v-for="(size, key) in sizes"
-            :key="key"
-        )
-            span.product-card__size-title {{key.toUpperCase()}}: 
-            span.product-card__size-count {{size}}
+        .product-card__sizes-list
+            .product-card__size(
+                v-for="(size, key) in sizes"
+                :key="key"
+            )
+                span.product-card__size-title {{key.toUpperCase()}}: 
+                span.product-card__size-count {{size}}
     .product-card__model Модель: {{item.id}}
 </template>
 
 
 <style scoped lang="sass">
 .product-card
+    display: grid
+    gap: 10px
+    align-self: start
+
     &__image
         max-width: 100%
+        display: block
+        height: 0
+        overflow: hidden
+        padding-bottom: 150%
+
         img
             max-width: 100%
             display: block
+            object-fit: cover
+
+    &__brand
+        margin-top: 0
+        margin-bottom: 0
+        font-size: 1.5rem
+        color: $accent-color
+
+    &__price
+        font-weight: 700
+        font-size: 1.8rem
+        display: grid
+
+    &__old-price
+        font-weight: 200
+        font-size: .8rem
+        color: $accent-color
+
+    &__sizes
+        display: grid
+        grid-template-columns: auto 1fr
+        align-items: start
+        gap: 5px
+
+    &__sizes-title
+        font-weight: 200
+
+    &__sizes-list
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(40px, auto))
+        justify-content: start
+        gap: 5px
+
+    &__size
+        background-color: $accent-color
+        color: $bg-color
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 2px 5px
+        font-size: .7rem
+        border-radius: 5px
+        font-weight: 200
+
+    &__model
+        color: $accent-color
+        font-size: 0.8em
+
 
 </style>

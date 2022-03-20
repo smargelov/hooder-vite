@@ -1,6 +1,7 @@
 <script setup>
 import {ref, defineProps} from 'vue'
 
+
 const props = defineProps({
     productCount: {
         type: Number,
@@ -23,5 +24,16 @@ section.hello
 
 
 <style scoped lang="sass">
+.hello
+    padding-bottom: 2rem
+    &__title
+        text-align: center
+        font-size: 2rem
+    &__subtitle
+        text-align: center
+        font-size: 1.5rem
+    &__desc
+        max-width: 32rem
+        margin: 0 auto 1rem
 
 </style>

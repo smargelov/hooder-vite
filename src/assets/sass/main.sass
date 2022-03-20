@@ -1,6 +1,18 @@
+@import "vars"
+
+html
+	font-size: $base-size
+	+md-block
+		font-size: $base-size-mob
+
 body
+	font-family: $main-font
 	display: grid
 	justify-content: center
+	line-height: $base-lh
+	color: $text-color
+	background-color: $bg-color
+	font-weight: normal
 
 .main
 	max-width: 1360px
