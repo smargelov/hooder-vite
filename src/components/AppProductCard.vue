@@ -3,10 +3,11 @@ import {computed, defineProps} from 'vue'
 
 const props = defineProps({
     item: {
-        type: Object,
+        type:Object,
         required: true
     }
 })
+
 const fullPrice = computed(() => {
     return Math.round((props.item.price * 1.8) / 100) * 100
 })
@@ -42,7 +43,10 @@ article.product-card
             )
                 span.product-card__size-title {{key.toUpperCase()}}: 
                 span.product-card__size-count {{size}}
-    .product-card__model Модель: {{item.id}}
+    router-link(
+        :to="`/model-${item.id}`"
+        :title="`Бренд: ${item.brand} за ${item.price}₽`"
+    ).product-card__model Модель: {{item.id}}
 </template>
 
 
@@ -51,6 +55,7 @@ article.product-card
     display: grid
     gap: 10px
     align-self: start
+    position: relative
 
     &__image
         max-width: 100%
@@ -109,6 +114,16 @@ article.product-card
     &__model
         color: $accent-color
         font-size: 0.8em
-
+        text-decoration: none
+        &::before
+            position: absolute
+            display: block
+            content: ''
+            top: 0
+            bottom: 0
+            left: 0
+            right: 0
+            cursor: pointer
+            z-index: 1
 
 </style>

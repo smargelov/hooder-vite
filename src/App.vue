@@ -1,6 +1,5 @@
 <script setup>
 import TheHelloText from '@/components/TheHelloText.vue'
-import TheCatalog from '@/components/TheCatalog.vue'
 import { catalog } from './db.json'
 import {computed} from 'vue'
 import {productCount} from '@/helpers/helpers'
@@ -24,7 +23,7 @@ TheHelloText(
     :productCount="allProductsCount"
     :allPrice="allProductsSum"
 )
-TheCatalog(
+router-view(
     :catalog="inStock"
 )
 </template>

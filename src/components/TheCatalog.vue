@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, computed, ref, onMounted } from 'vue'
+import { defineProps} from 'vue'
 import AppProductCard from '@/components/AppProductCard.vue'
 const props = defineProps({
     catalog: {
