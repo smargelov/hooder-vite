@@ -27,14 +27,18 @@ const plural = (number, one, two, five) => {
 
 const pluralProducts = number => plural(number, 'толстовку', 'толстовки', 'толстовок')
 
-const fullPrice = computed(() => {
-	return Math.round((props.item.price * 1.8) / 100) * 100
-})
-const sizes = computed(() => {
-	const obj = props.item.sizes
-	return Object.keys(props.item.sizes)
-		.filter(size => obj[size])
-		.reduce((res, size) => (res[size] = obj[size], res), {})
-})
+const fullPrice = (item) => {
+	return computed(() => {
+		return Math.round((item.price * 1.8) / 100) * 100
+	})
+}
+const sizes = (item) => {
+	return computed(() => {
+		const obj = item.sizes
+		return Object.keys(item.sizes)
+			.filter(size => obj[size])
+			.reduce((res, size) => (res[size] = obj[size], res), {})
+	})
+}
 
 export {productCount, pluralProducts, fullPrice, sizes}

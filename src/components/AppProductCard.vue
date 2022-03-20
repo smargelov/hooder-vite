@@ -1,5 +1,6 @@
 <script setup>
-import {computed, defineProps} from 'vue'
+import {toRefs} from 'vue'
+import {fullPrice, sizes} from '@/helpers/helpers'
 
 const props = defineProps({
     item: {
@@ -7,16 +8,8 @@ const props = defineProps({
         required: true
     }
 })
-
-const fullPrice = computed(() => {
-    return Math.round((props.item.price * 1.8) / 100) * 100
-})
-const sizes = computed(() => {
-    const obj = props.item.sizes
-    return Object.keys(props.item.sizes)
-        .filter(size => obj[size])
-        .reduce((res, size) => (res[size] = obj[size], res), {})
-})
+const {item} = toRefs(props)
+const sizesList = sizes(item.value)
 
 </script>
 
@@ -33,12 +26,12 @@ article.product-card
         )
     h3.product-card__brand {{item.brand}}
     .product-card__price {{item.price}} ₽
-        span.product-card__old-price (Розничная цена: {{fullPrice}})
+        span.product-card__old-price (Розничная цена: {{fullPrice(item)}})
     .product-card__sizes
         .product-card__sizes-title Размеры:
         .product-card__sizes-list
             .product-card__size(
-                v-for="(size, key) in sizes"
+                v-for="(size, key) in sizesList"
                 :key="key"
             )
                 span.product-card__size-title {{key.toUpperCase()}}: 

@@ -1,6 +1,7 @@
 <script setup>
-import {computed, defineProps} from 'vue'
-// import {fullPrice, sizes} from '@/helpers/helpers'
+import {computed, defineProps, toRefs} from 'vue'
+import { useRoute } from 'vue-router'
+import {fullPrice, sizes} from '@/helpers/helpers'
 
 const props = defineProps({
     catalog: {
@@ -9,37 +10,40 @@ const props = defineProps({
     }
 })
 
+const {catalog} = toRefs(props)
+const route = useRoute()
 const item = computed(() => {
-
+    return catalog.value.find(product => product.id === route.params.productId)
 })
+
+const sizesList = sizes(item.value)
 
 </script>
 
 <template lang="pug">
-p {{$route.params.productId}}
-//article.product
-//    picture.product__image
-//        source(
-//            :srcset="`/images/${item.images[0]}.webp`"
-//            type="image/webp"
-//        )
-//        img(
-//            :src="`/images/${item.images[0]}.jpg`"
-//            :alt="item.brand"
-//        )
-//    h3.product__brand {{item.brand}}
-//    .product__price {{item.price}} ₽
-//        span.product__old-price (Розничная цена: {{fullPrice}})
-//    .product__sizes
-//        .product__sizes-title Размеры:
-//        .product__sizes-list
-//            .product__size(
-//                v-for="(size, key) in sizes"
-//                :key="key"
-//            )
-//                span.product__size-title {{key.toUpperCase()}}: 
-//                span.product__size-count {{size}}
-//    .product__model Модель: {{item.id}}
+article.product
+    picture.product__image
+        source(
+            :srcset="`/images/${item.images[0]}.webp`"
+            type="image/webp"
+        )
+        img(
+            :src="`/images/${item.images[0]}.jpg`"
+            :alt="item.brand"
+        )
+    h3.product__brand {{item.brand}}
+    .product__price {{item.price}} ₽
+        span.product__old-price (Розничная цена: {{fullPrice(item)}})
+    .product__sizes
+        .product__sizes-title Размеры:
+        .product__sizes-list
+            .product__size(
+                v-for="(size, key) in sizesList"
+                :key="key"
+            )
+                span.product__size-title {{key.toUpperCase()}}: 
+                span.product__size-count {{size}}
+    .product__model Модель: {{item.id}}
 </template>
 
 
