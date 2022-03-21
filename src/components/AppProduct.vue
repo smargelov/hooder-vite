@@ -2,6 +2,8 @@
 import {computed, toRefs} from 'vue'
 import { useRoute } from 'vue-router'
 import {fullPrice, sizes} from '@/helpers/helpers'
+import {useCurrencyStore} from '@/stores/currency'
+import {storeToRefs} from 'pinia'
 
 const props = defineProps({
     catalog: {
@@ -17,7 +19,9 @@ const item = computed(() => {
 })
 
 const sizesList = sizes(item.value)
-
+const currency = useCurrencyStore()
+const {usd} = storeToRefs(currency)
+const usdToRubPrice = computed(() => Math.floor(item.value.usdPrice * usd.value))
 </script>
 
 <template lang="pug">
@@ -36,6 +40,10 @@ article.product
         h3.product__brand {{item.brand}}
         .product__price {{item.price}} ₽
             span.product__old-price (Розничная цена: {{fullPrice(item)}})
+        .product__desc
+            | Покупалось оптом по ${{item.usdPrice}}. (Это {{usdToRubPrice}}₽ по сегодняшнему курсу)
+            br
+            | {{item.description}}
         .product__sizes
             .product__sizes-title Размеры:
             .product__sizes-list
@@ -85,7 +93,7 @@ article.product
         font-weight: 700
         font-size: 1.8rem
         display: grid
-        grid-template-columns: repeat(2, auto)
+        grid-template-columns: auto 1fr
         gap: 1rem
         align-items: center
 
