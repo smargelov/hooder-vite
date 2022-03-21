@@ -13,6 +13,7 @@
         "M0010202-8"
       ],
       "brand": "AF",
+      "usdPrice": 37,
       "season": "winter",
       "description": "Есть",
       "color": "",
@@ -40,6 +41,7 @@
         "M0010204-9"
       ],
       "brand": "AF",
+      "usdPrice": 34,
       "season": "winter",
       "description": "Есть",
       "color": "",
@@ -66,6 +68,7 @@
         "M0010205-8"
       ],
       "brand": "AF",
+      "usdPrice": 31,
       "season": "winter",
       "description": "Some description",
       "color": "",
@@ -92,6 +95,7 @@
         "M0010206-8"
       ],
       "brand": "Super Dry",
+      "usdPrice": 35,
       "season": "winter",
       "description": "Some description",
       "color": "",
@@ -118,6 +122,7 @@
         "M0010208-8"
       ],
       "brand": "AF",
+      "usdPrice": 31,
       "season": "winter",
       "description": "Есть",
       "color": "",
@@ -145,6 +150,7 @@
         "M0010209-9"
       ],
       "brand": "AF",
+      "usdPrice": 31,
       "season": "winter",
       "description": "Some description",
       "color": "",
@@ -173,6 +179,7 @@
         "M0010210-10"
       ],
       "brand": "AF",
+      "usdPrice": 37,
       "season": "winter",
       "description": "Some description",
       "color": "",
@@ -199,6 +206,7 @@
         "M0010211-2"
       ],
       "brand": "AF",
+      "usdPrice": 31,
       "season": "winter",
       "description": "Есть",
       "color": "",
@@ -224,6 +232,7 @@
         "M0010212-7"
       ],
       "brand": "AF",
+      "usdPrice": 37,
       "season": "winter",
       "description": "Есть",
       "color": "",
@@ -251,6 +260,7 @@
         "M0010213-9"
       ],
       "brand": "Supreme",
+      "usdPrice": 29,
       "season": "winter",
       "description": "Some description",
       "color": "",
@@ -277,6 +287,7 @@
         "W0010203-8"
       ],
       "brand": "AF",
+      "usdPrice": 26,
       "season": "winter",
       "description": "Есть",
       "color": "",
@@ -303,6 +314,7 @@
         "W0010204-8"
       ],
       "brand": "AF",
+      "usdPrice": 55,
       "season": "winter",
       "description": "Some description",
       "color": "",
@@ -330,6 +342,7 @@
         "W0010205-9"
       ],
       "brand": "AF",
+      "usdPrice": 48,
       "season": "winter",
       "description": "Есть",
       "color": "",
@@ -356,6 +369,7 @@
         "W0010206-8"
       ],
       "brand": "AF",
+      "usdPrice": 27,
       "season": "winter",
       "description": "Есть",
       "color": "",
@@ -382,6 +396,7 @@
         "W0010207-8"
       ],
       "brand": "Guess",
+      "usdPrice": 23,
       "season": "winter",
       "description": "Some description",
       "color": "",
@@ -407,6 +422,7 @@
         "W0010209-7"
       ],
       "brand": "Guess",
+      "usdPrice": 28,
       "season": "winter",
       "description": "Some description",
       "color": "",
@@ -434,6 +450,7 @@
         "W0010210-9"
       ],
       "brand": "AF",
+      "usdPrice": 48,
       "season": "winter",
       "description": "Some description",
       "color": "",
@@ -458,6 +475,7 @@
         "W0010211-6"
       ],
       "brand": "Guess",
+      "usdPrice": 23,
       "season": "winter",
       "description": "Some description",
       "color": "",
