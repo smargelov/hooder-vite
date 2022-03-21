@@ -14,8 +14,8 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        node: [16]
+        os: [ ubuntu-latest ]
+        node: [ 16 ]
 
     steps:
       - name: Checkout 🛎
@@ -35,18 +35,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - run: set -eu
+      - run: mkdir "$HOME/.ssh"
+      - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > "$HOME/.ssh/key"
+      - run: chmod 600 "$HOME/.ssh/key"
+
       - name: Install dependencies 👨🏻‍💻
         run: npm ci --prefer-offline --no-audit
 
-      - name: Run linter 👀
+      - name: Run build 🏗️
         run: npm run build
 
       - name: Deploy to Server 🚀
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rltgoDzvO --delete"
-          SOURCE: "/dist/"
-          REMOTE_HOST: ${{ secrets.SSH_KNOWN_HOSTS }}
-          REMOTE_USER: "smargelov"
-          TARGET: ${{ secrets.SSH_DIR }}
+        run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . smargelov@${{ secrets.SSH_KNOWN_HOSTS }}:${{ secrets.SSH_DIR }}
