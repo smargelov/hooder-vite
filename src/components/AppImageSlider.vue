@@ -2,13 +2,14 @@
 import {Swiper, SwiperSlide} from 'swiper/vue'
 // Import Swiper styles
 import 'swiper/css'
+import "swiper/css/lazy"
 import "swiper/css/scrollbar"
 import "swiper/css/navigation"
 
 // import required modules
-import {Scrollbar, Navigation} from 'swiper'
+import {Scrollbar, Lazy, Navigation} from 'swiper'
 
-const modules = [Scrollbar, Navigation]
+const modules = [Scrollbar, Lazy, Navigation]
 
 const props = defineProps({
     images: {
@@ -35,6 +36,7 @@ Swiper(
     :scrollbar="{ hide: hideScrollbar }"
     :navigation="navigation"
     :modules="modules"
+    :lazy="true"
 ).slider
     SwiperSlide(
         v-for="img in images"
@@ -56,11 +58,15 @@ Swiper(
 .slider
     width: 100%
 
-    &__image img
-        display: block
-        width: 100%
-        height: 100%
-        object-fit: cover
+    &__image
+        img
+            display: block
+            width: 100%
+            height: 100%
+            object-fit: cover
+
+    .swiper-wrapper
+        height: auto
 
     .swiper-scrollbar-drag
         background-color: $accent-color
