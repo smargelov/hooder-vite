@@ -1,5 +1,6 @@
 <script setup>
 import {Swiper, SwiperSlide} from 'swiper/vue'
+import {laptop} from '@/helpers/breakpoints'
 // Import Swiper styles
 import 'swiper/css'
 import "swiper/css/lazy"
@@ -19,22 +20,14 @@ const props = defineProps({
     brand: {
         type: String,
         required: true
-    },
-    navigation: {
-        type: Boolean,
-        default: false
-    },
-    hideScrollbar: {
-        type: Boolean,
-        default: false
     }
 })
 </script>
 
 <template lang="pug">
 Swiper(
-    :scrollbar="{ hide: hideScrollbar }"
-    :navigation="navigation"
+    :scrollbar="{ hide: laptop }"
+    :navigation="laptop"
     :modules="modules"
     :lazy="true"
 ).slider

@@ -30,8 +30,6 @@ article.product
     AppImageSlider(
         :images="item.images"
         :brand="item.brand"
-        navigation
-        hideScrollbar
     ).product__image
     .product__content
         router-link(
