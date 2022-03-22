@@ -60,6 +60,8 @@ article.product
     gap: 2rem
     grid-template-columns: minmax(auto, 1fr) 1fr
     justify-items: center
+    +md-block
+        grid-template-columns: 1fr
 
     &__image
         max-width: 100%
