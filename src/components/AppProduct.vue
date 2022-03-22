@@ -34,6 +34,10 @@ article.product
         hideScrollbar
     ).product__image
     .product__content
+        router-link(
+            to="/"
+            title="На главную"
+        ).product__home-link ← на главную
         h3.product__brand {{item.brand}}
         .product__price {{item.price}} ₽
             span.product__old-price (Розничная цена: {{fullPrice(item)}})
@@ -72,6 +76,10 @@ article.product
         display: grid
         gap: 1rem
         align-content: start
+
+    &__home-link
+        text-decoration: none
+        color: $accent-color
 
     &__brand
         margin-top: 0

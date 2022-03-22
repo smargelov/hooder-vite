@@ -5,7 +5,7 @@ import AppImageSlider from '@/components/AppImageSlider.vue'
 
 const props = defineProps({
     item: {
-        type:Object,
+        type: Object,
         required: true
     }
 })
@@ -20,7 +20,11 @@ article.product-card
         :images="item.images"
         :brand="item.brand"
     ).product-card__image
-    h3.product-card__brand {{item.brand}}
+    .product-card__title-line
+        h3.product-card__brand {{item.brand}}
+        button.product-card__more(
+            @click="$router.push(`/model-${item.id}`)"
+        ) посмотреть →
     .product-card__price {{item.price}} ₽
         span.product-card__old-price (Розничная цена: {{fullPrice(item)}})
     .product-card__sizes
@@ -41,6 +45,7 @@ article.product-card
 
 <style scoped lang="sass">
 .product-card
+    max-width: 90vw
     display: grid
     gap: .8rem
     align-self: start
@@ -53,11 +58,29 @@ article.product-card
         overflow: hidden
         padding-bottom: 150%
 
+    &__title-line
+        display: flex
+        justify-content: space-between
+        align-items: center
+
     &__brand
         margin-top: 0
         margin-bottom: 0
         font-size: 1.5rem
         color: $accent-color
+
+    &__more
+        background-color: transparent
+        color: $accent-color
+        border: none
+        display: inline-flex
+        align-items: center
+        justify-content: center
+        opacity: .7
+        cursor: pointer
+
+    &__more-icon
+        transform: scale(.9)
 
     &__price
         font-weight: 700
