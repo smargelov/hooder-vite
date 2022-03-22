@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 import {fullPrice, sizes} from '@/helpers/helpers'
 import {useCurrencyStore} from '@/stores/currency'
 import {storeToRefs} from 'pinia'
+import AppImageSlider from '@/components/AppImageSlider.vue'
 
 const props = defineProps({
     catalog: {
@@ -26,16 +27,12 @@ const usdToRubPrice = computed(() => Math.floor(item.value.usdPrice * usd.value)
 
 <template lang="pug">
 article.product
-    .product__slider
-        picture.product__image
-            source(
-                :srcset="`/images/${item.images[0]}.webp`"
-                type="image/webp"
-            )
-            img(
-                :src="`/images/${item.images[0]}.jpg`"
-                :alt="item.brand"
-            )
+    AppImageSlider(
+        :images="item.images"
+        :brand="item.brand"
+        navigation
+        hideScrollbar
+    ).product__image
     .product__content
         h3.product__brand {{item.brand}}
         .product__price {{item.price}} ₽
@@ -66,15 +63,6 @@ article.product
 
     &__image
         max-width: 100%
-        display: block
-        height: 0
-        overflow: hidden
-        padding-bottom: 150%
-
-        img
-            max-width: 100%
-            display: block
-            object-fit: cover
 
     &__content
         min-width: 45%
