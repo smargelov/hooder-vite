@@ -26,7 +26,7 @@ const props = defineProps({
 
 <template lang="pug">
 Swiper(
-    :scrollbar="{ hide: laptop }"
+    :scrollbar="{ hide: false }"
     :navigation="laptop"
     :modules="modules"
     :lazy="true"

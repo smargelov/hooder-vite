@@ -9,6 +9,9 @@
   },
   "dependencies": {
     "@vueuse/core": "^8.1.2",
+    "@vueuse/head": "^0.7.5",
+    "@vueuse/integrations": "^8.1.2",
+    "focus-trap": "^6.7.3",
     "pinia": "^2.0.12",
     "swiper": "^8.0.7",
     "vue": "^3.2.25",

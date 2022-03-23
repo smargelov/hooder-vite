@@ -1,9 +1,10 @@
 <script setup>
 import TheHelloText from '@/components/TheHelloText.vue'
 import { catalog } from './db.json'
-import {computed, onBeforeMount, onMounted} from 'vue'
+import {computed, onBeforeMount, onMounted, ref} from 'vue'
 import {productCount} from '@/helpers/helpers'
 import {useCurrencyStore} from '@/stores/currency'
+import AppModal from '@/components/AppModal.vue'
 
 const products = computed(() => {
     return catalog
@@ -22,16 +23,30 @@ const currency = useCurrencyStore()
 onBeforeMount( () => {
     currency.fetchUsdCourse()
 })
+
+const isFormModalOpen = ref(false)
+const openFormModal = () => {
+    isFormModalOpen.value = true
+}
+const closeFormModal = () => {
+    isFormModalOpen.value = false
+}
 </script>
 
 <template lang="pug">
 TheHelloText(
-    :productCount="allProductsCount"
-    :allPrice="allProductsSum"
+    :product-count="allProductsCount"
+    :all-price="allProductsSum"
+    @open-form-modal="openFormModal"
 )
 router-view(
     :catalog="inStock"
 )
+AppModal(
+    :open="isFormModalOpen"
+    @close="closeFormModal"
+    )
+    input(type="text")
 </template>
 
 <style lang="sass">

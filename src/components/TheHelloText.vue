@@ -1,4 +1,5 @@
 <script setup>
+const emit = defineEmits(['openFormModal'])
 const props = defineProps({
     productCount: {
         type: Number,
@@ -17,6 +18,7 @@ section.hello
     h2.hello__subtitle Продаю остатки после закрытия интернет-магазина
     p.hello__desc Время непростое и моя мечта воссоздать интернет-магазин по продаже вещей с капюшоном, похоже, не осуществится. Поэтому, оставшиеся толстовки ({{productCount}}) продаю.
     p.hello__desc Цена за всё — {{allPrice}} ₽. По частям не продаю. Без торга
+    button.hello_form-btn(@click="$emit('openFormModal')") Открыть форму
 </template>
 
 

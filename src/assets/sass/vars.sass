@@ -11,6 +11,8 @@
 	--accent-color: var(--blue)
 	--bold-color: var(--black)
 
+	--swiper-navigation-size: 24px
+
 // VARIABLES
 $bg-color: var(--bg-color)
 $text-color: var(--text-color)
@@ -34,3 +36,5 @@ $break_sm: 480px
 	@media screen and (max-width: $break_sm)
 		@content
 
+=baseTransition($param: all, $duration: .3)
+	transition: $param #{$duration}s ease-in-out
