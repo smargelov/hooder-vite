@@ -1,4 +1,5 @@
 <script setup>
+import AppButton from '@/components/AppButton.vue'
 const emit = defineEmits(['openFormModal'])
 const props = defineProps({
     productCount: {
@@ -18,21 +19,30 @@ section.hello
     h2.hello__subtitle Продаю остатки после закрытия интернет-магазина
     p.hello__desc Время непростое и моя мечта воссоздать интернет-магазин по продаже вещей с капюшоном, похоже, не осуществится. Поэтому, оставшиеся толстовки ({{productCount}}) продаю.
     p.hello__desc Цена за всё — {{allPrice}} ₽. По частям не продаю. Без торга
-    button.hello_form-btn(@click="$emit('openFormModal')") Открыть форму
+    AppButton.hello__form-btn(@button-handler="$emit('openFormModal')") Заполните и я с вами свяжусь
 </template>
 
 
 <style scoped lang="sass">
 .hello
     padding-bottom: 2rem
+    display: flex
+    flex-direction: column
+    gap: 1rem
+    align-items: center
     &__title
         text-align: center
         font-size: 2rem
+        margin-bottom: 0
     &__subtitle
         text-align: center
         font-size: 1.5rem
+        margin-bottom: 0
+        margin-top: 0
     &__desc
         max-width: 32rem
-        margin: 0 auto 1rem
+        margin: 0
+    &__form-btn
+        justify-self: center
 
 </style>
