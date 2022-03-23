@@ -31,7 +31,7 @@ Teleport( to="body")
         .overlay( v-if="open" )
     transition(name="slide")
         UseFocusTrap(v-if="open")
-            .modal( ref="modal" )
+            .modal( ref="modal" @keydown.esc="closeModal")
                 slot
                 button(
                     @click="closeModal"

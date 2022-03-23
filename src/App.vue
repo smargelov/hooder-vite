@@ -5,6 +5,7 @@ import {computed, onBeforeMount, onMounted, ref} from 'vue'
 import {productCount} from '@/helpers/helpers'
 import {useCurrencyStore} from '@/stores/currency'
 import AppModal from '@/components/AppModal.vue'
+import AppFeedbackForm from '@/components/AppFeedbackForm.vue'
 
 const products = computed(() => {
     return catalog
@@ -46,7 +47,9 @@ AppModal(
     :open="isFormModalOpen"
     @close="closeFormModal"
     )
-    input(type="text")
+    AppFeedbackForm(
+        @send-form-handler="sendFormHandler"
+    )
 </template>
 
 <style lang="sass">
