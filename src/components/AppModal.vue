@@ -1,8 +1,6 @@
 <script setup>
 import {computed, ref, watch} from 'vue'
-import {onClickOutside} from '@vueuse/core'
 import {useHead} from '@vueuse/head'
-import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component'
 
 const bodyClass = ref('')
 useHead({bodyAttrs: [{class: computed(() => bodyClass.value)}]})
@@ -17,25 +15,21 @@ const props = defineProps({
 })
 const emit = defineEmits(['close'])
 
-const modal = ref(null)
 const closeModal = () => {
   emit('close')
 }
-onClickOutside(modal, closeModal)
-
 </script>
 
 <template lang="pug">
 Teleport( to="body")
   transition(name="fade")
-    .overlay( v-if="open" )
+    .overlay( v-if="open" @click="closeModal")
   transition(name="slide")
-    UseFocusTrap(v-if="open")
-      .modal( ref="modal" @keydown.esc="closeModal")
-        slot
-        button(
-          @click="closeModal"
-        ).modal__close &times;
+    .modal(v-if="open" @keydown.esc="closeModal")
+      slot
+      button(
+        @click="closeModal"
+      ).modal__close &times;
 </template>
 
 <style lang="sass" scoped>
@@ -58,8 +52,8 @@ Teleport( to="body")
   transform: translateX(-50%)
   top: 10vh
   background-color: $bg-color
-  width: 90%
   max-width: 30rem
+  width: 70%
   padding: 2rem
 
   &__close
