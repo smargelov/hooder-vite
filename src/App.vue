@@ -31,8 +31,8 @@ const closeFormModal = () => {
   isFormModalOpen.value = false
 }
 
-const sendFormHandler = () => {
-  console.log('form send')
+const sendFormHandler = (form) => {
+  console.log(form.name)
 }
 </script>
 

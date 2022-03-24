@@ -96,7 +96,6 @@ article.product-card
     transform: scale(.9)
 
   &__price
-    font-weight: 700
     font-size: 1.8rem
     display: grid
 
