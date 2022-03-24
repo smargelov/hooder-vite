@@ -1,12 +1,12 @@
 <script setup>
 import AppProductCard from '@/components/AppProductCard.vue'
+import {useProductStore} from "@/stores/products.js";
+import {computed} from "vue";
 
-const props = defineProps({
-  catalog: {
-    type: Array,
-    required: true
-  }
-})
+
+const productsStore = useProductStore()
+const catalog = computed(() => productsStore.inStock)
+
 </script>
 
 <template lang="pug">

@@ -5,19 +5,11 @@ import {fullPrice, sizes} from '@/helpers/helpers'
 import {useCurrencyStore} from '@/stores/currency'
 import {storeToRefs} from 'pinia'
 import AppImageSlider from '@/components/AppImageSlider.vue'
+import {useProductStore} from "@/stores/products.js";
 
-const props = defineProps({
-  catalog: {
-    type: Array,
-    required: true
-  }
-})
-
-const {catalog} = toRefs(props)
 const route = useRoute()
-const item = computed(() => {
-  return catalog.value.find(product => product.id === route.params.productId)
-})
+const productsStore = useProductStore()
+const item = computed(() => productsStore.getProductById(route.params.productId))
 
 const sizesList = sizes(item.value)
 const currency = useCurrencyStore()
