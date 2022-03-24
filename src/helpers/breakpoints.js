@@ -1,8 +1,8 @@
-import { useBreakpoints } from '@vueuse/core'
+import {useBreakpoints} from '@vueuse/core'
 
 const breakpoints = useBreakpoints({
-	tablet: 480,
-	laptop: 768
+    tablet: 480,
+    laptop: 768
 })
 
 const laptop = breakpoints.greater('laptop')

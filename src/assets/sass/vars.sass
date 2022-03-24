@@ -1,17 +1,17 @@
 \:root
-	--black: #2d3142
-	--white: #ffffff
-	--gray: #bdbdbf
-	--blue: #5370ef
-	--dark: #4f5675
+  --black: #2d3142
+  --white: #ffffff
+  --gray: #bdbdbf
+  --blue: #5370ef
+  --dark: #4f5675
 
-	--bg-color: var(--white)
-	--text-color: var(--dark)
-	--disable-color: var(--gray)
-	--accent-color: var(--blue)
-	--bold-color: var(--black)
+  --bg-color: var(--white)
+  --text-color: var(--dark)
+  --disable-color: var(--gray)
+  --accent-color: var(--blue)
+  --bold-color: var(--black)
 
-	--swiper-navigation-size: 24px
+  --swiper-navigation-size: 24px
 
 // VARIABLES
 $bg-color: var(--bg-color)
@@ -29,12 +29,12 @@ $break_md: 768px
 $break_sm: 480px
 
 =md-block()
-	@media screen and (max-width: $break_md)
-		@content
+  @media screen and (max-width: $break_md)
+    @content
 
 =sm-block()
-	@media screen and (max-width: $break_sm)
-		@content
+  @media screen and (max-width: $break_sm)
+    @content
 
 =baseTransition($param: all, $duration: .3)
-	transition: $param #{$duration}s ease-in-out
+  transition: $param #{$duration}s ease-in-out
