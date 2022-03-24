@@ -16,12 +16,14 @@ if (count($_POST) > 0) {
 
 $arr = [
     'Имя: ' => $name,
-    'Email: ' => $email,
     'Телефон: ' => $phone,
+    'Telegram: ' => $tg,
+    'Сообщение: ' => $message,
+    'Страница: ' => 'https://hooder.ru' . $page
 ];
 
-$token = "5191034117:AAFz0pB-YpbDz3kJ4SjkmBh-LCyn_MyyxxM";
-$chat_id = "-1001713764817";
+$token = "717731562:AAFnAxAarCnJI14ZpCVE46R_30z7LjgYSTo";
+$chat_id = "-357124271";
 
 $sitename = "HOODER";
 $pagetitle = "Новый запрос с сайта \"$sitename\"";

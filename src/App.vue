@@ -7,6 +7,7 @@ import {useProductStore} from '@/stores/products'
 import AppModal from '@/components/AppModal.vue'
 import AppFeedbackForm from '@/components/AppFeedbackForm.vue'
 import AppFeedbackTnx from "@/components/AppFeedbackTnx.vue";
+import fetchFromToTelegram from "@/fetch/formToTelegram.js";
 
 const productsStore = useProductStore()
 const inStock = computed(() => productsStore.inStock)
@@ -17,7 +18,6 @@ const allProductsCount = computed(() => {
 const allProductsSum = computed(() => {
   return inStock.value.reduce((sum, product) => sum + (product.price * productCount(product.sizes)), 0)
 })
-
 
 const currency = useCurrencyStore()
 onBeforeMount(() => {
@@ -32,10 +32,18 @@ const openFormModal = () => {
 const closeFormModal = () => {
   isFormModalOpen.value = false
 }
-
-const sendFormHandler = (form) => {
-  console.log(form.name)
-  userName.value = form.name
+const sendFormHandler = async (form) => {
+  try {
+    if (import.meta.env.PROD) {
+      await fetchFromToTelegram(form)
+    } else {
+      await console.log(form)
+    }
+    userName.value = form.name
+  } catch (e) {
+    console.log(e.message)
+    closeFormModal()
+  }
 }
 </script>
 

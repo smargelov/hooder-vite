@@ -2,13 +2,16 @@
 import AppButton from "@/components/AppButton.vue";
 import AppInput from "@/components/AppInput.vue";
 import {computed, reactive} from "vue";
+import {useRoute} from "vue-router";
 
 const emit = defineEmits(['sendFormHandler'])
+const route = useRoute()
 const form = reactive({
   name: '',
   phone: '',
   tg: '',
-  message: ''
+  message: '',
+  page: route.path
 })
 const isRequire = computed(() => {
   return form.name && (form.phone || form.tg)
@@ -40,6 +43,7 @@ const isRequire = computed(() => {
       label="Сообщение"
       v-model.trim="form.message"
     ).feedback__input
+    input(type="hidden" v-model="form.page" )
     AppButton(
       :disabled="!isRequire"
       type="submit"
