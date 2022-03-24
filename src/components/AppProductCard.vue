@@ -20,26 +20,19 @@ article.product-card
     :images="item.images"
     :brand="item.brand"
   ).product-card__image
-  .product-card__title-line
+  .product-card__desc
     h3.product-card__brand {{item.brand}}
     button.product-card__more(
       @click="$router.push(`/model-${item.id}`)"
-    ) посмотреть →
-  .product-card__price {{item.price}} ₽
-    span.product-card__old-price (Розничная цена: {{fullPrice(item)}})
-  .product-card__sizes
-    .product-card__sizes-title Размеры:
-    .product-card__sizes-list
+    ) →
+    .product-card__price {{item.price}} ₽
+    .product-card__sizes
       .product-card__size(
         v-for="(size, key) in sizesList"
         :key="key"
       )
         span.product-card__size-title {{key.toUpperCase()}}: 
         span.product-card__size-count {{size}}
-  router-link(
-    :to="`/model-${item.id}`"
-    :title="`Бренд: ${item.brand} за ${item.price}₽`"
-  ).product-card__model Модель: {{item.id}}
 </template>
 
 
@@ -47,7 +40,7 @@ article.product-card
 .product-card
   max-width: 90vw
   display: grid
-  gap: .8rem
+  gap: .5rem
   align-self: start
   position: relative
 
@@ -58,10 +51,18 @@ article.product-card
     overflow: hidden
     padding-bottom: 150%
 
-  &__title-line
-    display: flex
-    justify-content: space-between
+  &__desc
+    display: grid
+    gap: .5rem
+    grid-template-columns: auto 1fr
     align-items: center
+    position: absolute
+    z-index: 1
+    right: 0
+    left: 0
+    bottom: 0
+    background-color: rgba(#ffffff, .7)
+    padding: .5rem 1rem 1rem
 
   &__brand
     margin-top: 0
@@ -78,6 +79,16 @@ article.product-card
     justify-content: center
     opacity: .7
     cursor: pointer
+    justify-self: end
+    font-size: 2rem
+    &::before
+      position: absolute
+      content: ''
+      display: block
+      left: 0
+      right: 0
+      top: 0
+      bottom: 0
 
   &__more-icon
     transform: scale(.9)
@@ -87,25 +98,11 @@ article.product-card
     font-size: 1.8rem
     display: grid
 
-  &__old-price
-    font-weight: 200
-    font-size: .8rem
-    color: $accent-color
-
   &__sizes
     display: grid
-    grid-template-columns: auto 1fr
-    align-items: start
-    gap: 5px
-
-  &__sizes-title
-    font-weight: 200
-
-  &__sizes-list
-    display: grid
     grid-template-columns: repeat(auto-fit, minmax(40px, auto))
-    justify-content: start
-    gap: 5px
+    gap: 0.3rem
+    justify-content: end
 
   &__size
     background-color: $accent-color

@@ -1,6 +1,5 @@
 <script setup>
 import TheHelloText from '@/components/TheHelloText.vue'
-import {catalog} from './db.json'
 import {computed, onBeforeMount, ref} from 'vue'
 import {productCount} from '@/helpers/helpers'
 import {useCurrencyStore} from '@/stores/currency'

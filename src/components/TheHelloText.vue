@@ -20,7 +20,7 @@ section.hello
   h2.hello__subtitle Продаю остатки после закрытия интернет-магазина
   p.hello__desc Время непростое и моя мечта воссоздать интернет-магазин по продаже вещей с капюшоном, похоже, не осуществится. Поэтому, оставшиеся толстовки ({{productCount}}) продаю.
   p.hello__desc Цена за всё — {{allPrice}} ₽. По частям не продаю. Без торга
-  AppButton.hello__form-btn(@click="$emit('openFormModal')") Заполните и я с вами свяжусь
+  AppButton.hello__form-btn(@click="$emit('openFormModal')") Кнопка для связи со мной
 </template>
 
 

@@ -1,12 +1,16 @@
 \:root
   --black: #2d3142
+  --black-rgb: #{hexToRGB(#2d3142)}
   --white: #ffffff
+  --white-rgb: #{hexToRGB(#ffffff)}
   --gray: #bdbdbf
   --blue: #5370ef
   --dark: #4f5675
+  --dark-rgb: #{hexToRGB(#4f5675)}
 
   --bg-color: var(--white)
   --text-color: var(--dark)
+  --text-color-rgb: var(--dark-rgb)
   --disable-color: var(--gray)
   --accent-color: var(--blue)
   --bold-color: var(--black)
@@ -16,6 +20,7 @@
 // VARIABLES
 $bg-color: var(--bg-color)
 $text-color: var(--text-color)
+$text-color-rgb: var(--text-color-rgb)
 $disable-color: var(--disable-color)
 $accent-color: var(--accent-color)
 $bold-color: var(--bold-color)
@@ -38,3 +43,6 @@ $break_sm: 480px
 
 =baseTransition($param: all, $duration: .3)
   transition: $param #{$duration}s ease-in-out
+
+@function hexToRGB($hex)
+  @return red($hex), green($hex), blue($hex)
