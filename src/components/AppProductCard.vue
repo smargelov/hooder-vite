@@ -22,8 +22,9 @@ article.product-card
   ).product-card__image
   .product-card__desc
     h3.product-card__brand {{item.brand}}
-    button.product-card__more(
-      @click="$router.push(`/model-${item.id}`)"
+    router-link.product-card__more(
+      :to="`/model-${item.id}`"
+      :title="`Бренд: ${item.brand} за ${item.price}₽`"
     ) →
     .product-card__price {{item.price}} ₽
     .product-card__sizes
@@ -80,7 +81,8 @@ article.product-card
     opacity: .7
     cursor: pointer
     justify-self: end
-    font-size: 2rem
+    font-size: 1.5rem
+    text-decoration: none
     &::before
       position: absolute
       content: ''

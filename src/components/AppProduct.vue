@@ -1,15 +1,30 @@
 <script setup>
-import {computed, toRefs} from 'vue'
+import {computed, reactive, toRefs} from 'vue'
 import {useRoute} from 'vue-router'
 import {fullPrice, sizes} from '@/helpers/helpers'
 import {useCurrencyStore} from '@/stores/currency'
 import {storeToRefs} from 'pinia'
+import {useHead} from '@vueuse/head'
 import AppImageSlider from '@/components/AppImageSlider.vue'
 import {useProductStore} from "@/stores/products.js";
 
 const route = useRoute()
 const productsStore = useProductStore()
 const item = computed(() => productsStore.getProductById(route.params.productId))
+
+const siteData = reactive({
+  title: `Бренд: ${item.value.brand} за ${item.value.price}₽`,
+  description: item?.value.description,
+})
+useHead({
+  title: computed(() => siteData.title),
+  meta: [
+    {
+      name: `description`,
+      content: computed(() => siteData.description),
+    },
+  ],
+})
 
 const sizesList = sizes(item.value)
 const currency = useCurrencyStore()

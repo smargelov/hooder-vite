@@ -2,10 +2,20 @@
 import AppProductCard from '@/components/AppProductCard.vue'
 import {useProductStore} from "@/stores/products.js";
 import {computed} from "vue";
-
+import {useHead} from "@vueuse/head";
 
 const productsStore = useProductStore()
 const catalog = computed(() => productsStore.inStock)
+
+useHead({
+  title: computed(() => 'Распродажа толстовок с капюшоном'),
+  meta: [
+    {
+      name: `description`,
+      content: computed(() => 'Продаются остатки после закрытия интернет-магазина вещей с капюшоном'),
+    },
+  ],
+})
 
 </script>
 
