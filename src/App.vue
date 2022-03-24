@@ -6,6 +6,7 @@ import {useCurrencyStore} from '@/stores/currency'
 import {useProductStore} from '@/stores/products'
 import AppModal from '@/components/AppModal.vue'
 import AppFeedbackForm from '@/components/AppFeedbackForm.vue'
+import AppFeedbackTnx from "@/components/AppFeedbackTnx.vue";
 
 const productsStore = useProductStore()
 const inStock = computed(() => productsStore.inStock)
@@ -23,6 +24,7 @@ onBeforeMount(() => {
   currency.fetchUsdCourse()
 })
 
+const userName = ref(null)
 const isFormModalOpen = ref(false)
 const openFormModal = () => {
   isFormModalOpen.value = true
@@ -33,6 +35,7 @@ const closeFormModal = () => {
 
 const sendFormHandler = (form) => {
   console.log(form.name)
+  userName.value = form.name
 }
 </script>
 
@@ -48,7 +51,13 @@ AppModal(
   @close="closeFormModal"
 )
   AppFeedbackForm(
+    v-if="!userName"
     @send-form-handler="sendFormHandler"
+  )
+  AppFeedbackTnx(
+    v-else
+    :name="userName"
+    @close-form="closeFormModal"
   )
 </template>
 

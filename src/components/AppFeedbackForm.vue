@@ -43,7 +43,7 @@ const isRequire = computed(() => {
     AppButton(
       :disabled="!isRequire"
       type="submit"
-      @click="$emit('sendFormHandler', form)"
+      @click.once="$emit('sendFormHandler', form)"
     ).feedback__btn Отправить
 </template>
 
