@@ -14,8 +14,10 @@
       ],
       "brand": "AF",
       "usdPrice": 37,
-      "season": "winter",
-      "description": "Есть",
+      "season": [
+        "весна/осень"
+      ],
+      "description": "",
       "color": "",
       "male": "m",
       "sizes": {
@@ -42,8 +44,10 @@
       ],
       "brand": "AF",
       "usdPrice": 34,
-      "season": "winter",
-      "description": "Есть",
+      "season": [
+        "лето"
+      ],
+      "description": "",
       "color": "",
       "male": "m",
       "sizes": {
@@ -69,8 +73,10 @@
       ],
       "brand": "AF",
       "usdPrice": 31,
-      "season": "winter",
-      "description": "Some description",
+      "season": [
+        "лето"
+      ],
+      "description": "",
       "color": "",
       "male": "m",
       "sizes": {
@@ -96,8 +102,10 @@
       ],
       "brand": "Super Dry",
       "usdPrice": 35,
-      "season": "winter",
-      "description": "Some description",
+      "season": [
+        "весна/осень"
+      ],
+      "description": "",
       "color": "",
       "male": "m",
       "sizes": {
@@ -123,8 +131,10 @@
       ],
       "brand": "AF",
       "usdPrice": 31,
-      "season": "winter",
-      "description": "Есть",
+      "season": [
+        "лето"
+      ],
+      "description": "",
       "color": "",
       "male": "m",
       "sizes": {
@@ -151,8 +161,10 @@
       ],
       "brand": "AF",
       "usdPrice": 31,
-      "season": "winter",
-      "description": "Some description",
+      "season": [
+        "лето"
+      ],
+      "description": "",
       "color": "",
       "male": "m",
       "sizes": {
@@ -180,8 +192,10 @@
       ],
       "brand": "AF",
       "usdPrice": 37,
-      "season": "winter",
-      "description": "Some description",
+      "season": [
+        "весна/осень"
+      ],
+      "description": "",
       "color": "",
       "male": "m",
       "sizes": {
@@ -207,8 +221,10 @@
       ],
       "brand": "AF",
       "usdPrice": 31,
-      "season": "winter",
-      "description": "Есть",
+      "season": [
+        "лето"
+      ],
+      "description": "",
       "color": "",
       "male": "m",
       "sizes": {
@@ -233,8 +249,11 @@
       ],
       "brand": "AF",
       "usdPrice": 37,
-      "season": "winter",
-      "description": "Есть",
+      "season": [
+        "зима",
+        "весна/осень"
+      ],
+      "description": "",
       "color": "",
       "male": "m",
       "sizes": {
@@ -261,8 +280,10 @@
       ],
       "brand": "Supreme",
       "usdPrice": 29,
-      "season": "winter",
-      "description": "Some description",
+      "season": [
+        "весна/осень"
+      ],
+      "description": "",
       "color": "",
       "male": "m",
       "sizes": {
@@ -288,8 +309,10 @@
       ],
       "brand": "AF",
       "usdPrice": 26,
-      "season": "winter",
-      "description": "Есть",
+      "season": [
+        "весна/осень"
+      ],
+      "description": "",
       "color": "",
       "male": "w",
       "sizes": {
@@ -315,8 +338,10 @@
       ],
       "brand": "AF",
       "usdPrice": 55,
-      "season": "winter",
-      "description": "Some description",
+      "season": [
+        "зима"
+      ],
+      "description": "",
       "color": "",
       "male": "w",
       "sizes": {
@@ -343,8 +368,10 @@
       ],
       "brand": "AF",
       "usdPrice": 48,
-      "season": "winter",
-      "description": "Есть",
+      "season": [
+        "зима"
+      ],
+      "description": "",
       "color": "",
       "male": "w",
       "sizes": {
@@ -370,8 +397,10 @@
       ],
       "brand": "AF",
       "usdPrice": 27,
-      "season": "winter",
-      "description": "Есть",
+      "season": [
+        "весна/осень"
+      ],
+      "description": "",
       "color": "",
       "male": "w",
       "sizes": {
@@ -397,8 +426,10 @@
       ],
       "brand": "Guess",
       "usdPrice": 23,
-      "season": "winter",
-      "description": "Some description",
+      "season": [
+        "весна/осень"
+      ],
+      "description": "",
       "color": "",
       "male": "w",
       "sizes": {
@@ -423,8 +454,10 @@
       ],
       "brand": "Guess",
       "usdPrice": 28,
-      "season": "winter",
-      "description": "Some description",
+      "season": [
+        "весна/осень"
+      ],
+      "description": "",
       "color": "",
       "male": "w",
       "sizes": {
@@ -451,8 +484,10 @@
       ],
       "brand": "AF",
       "usdPrice": 48,
-      "season": "winter",
-      "description": "Some description",
+      "season": [
+        "зима"
+      ],
+      "description": "",
       "color": "",
       "male": "w",
       "sizes": {
@@ -476,8 +511,11 @@
       ],
       "brand": "Guess",
       "usdPrice": 23,
-      "season": "winter",
-      "description": "Some description",
+      "season": [
+        "лето",
+        "весна/осень"
+      ],
+      "description": "",
       "color": "",
       "male": "w",
       "sizes": {
