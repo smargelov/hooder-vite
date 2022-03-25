@@ -1,5 +1,5 @@
 <script setup>
-import AppButton from "@/components/AppButton.vue";
+import AppButton from '@/components/AppButton.vue'
 
 const emit = defineEmits(['closeForm'])
 const props = defineProps({
@@ -22,6 +22,7 @@ const props = defineProps({
 .tnx
   display: grid
   gap: 1rem
+
   &__btn
     justify-self: end
 

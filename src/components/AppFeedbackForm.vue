@@ -1,8 +1,8 @@
 <script setup>
-import AppButton from "@/components/AppButton.vue";
-import AppInput from "@/components/AppInput.vue";
-import {computed, reactive} from "vue";
-import {useRoute} from "vue-router";
+import AppButton from '@/components/AppButton.vue'
+import AppInput from '@/components/AppInput.vue'
+import {computed, reactive} from 'vue'
+import {useRoute} from 'vue-router'
 
 const emit = defineEmits(['sendFormHandler'])
 const route = useRoute()

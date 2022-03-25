@@ -1,6 +1,6 @@
 <script setup>
-import {uid} from "@/helpers/helpers.js";
-import {computed} from "vue";
+import {uid} from '@/helpers/helpers.js'
+import {computed} from 'vue'
 
 const emit = defineEmits(['update:modelValue'])
 const props = defineProps({
@@ -88,6 +88,7 @@ const maskPattern = computed(() => {
     width: 100%
     padding: .3rem 1rem .2rem
     +baseTransition()
+
     &:focus
       outline: none
       box-shadow: inset 0 0 0 1px $accent-color

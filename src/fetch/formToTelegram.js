@@ -5,9 +5,9 @@ const fetchFromToTelegram = async (data) => {
         mode: 'same-origin',
         credentials: 'same-origin',
         headers: {
-            "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+            'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
         },
-        body: Object.entries(data).map(([k,v]) => k + '=' + v).join('&')
+        body: Object.entries(data).map(([k, v]) => k + '=' + v).join('&')
     })
     return await response.json()
 }

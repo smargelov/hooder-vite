@@ -1,6 +1,6 @@
 <script setup>
 import {toRefs} from 'vue'
-import {fullPrice, sizes} from '@/helpers/helpers'
+import {sizes} from '@/helpers/helpers'
 import AppImageSlider from '@/components/AppImageSlider.vue'
 
 const props = defineProps({
@@ -83,6 +83,7 @@ article.product-card
     justify-self: end
     font-size: 1.5rem
     text-decoration: none
+
     &::before
       position: absolute
       content: ''

@@ -6,8 +6,8 @@ import {useCurrencyStore} from '@/stores/currency'
 import {useProductStore} from '@/stores/products'
 import AppModal from '@/components/AppModal.vue'
 import AppFeedbackForm from '@/components/AppFeedbackForm.vue'
-import AppFeedbackTnx from "@/components/AppFeedbackTnx.vue";
-import fetchFromToTelegram from "@/fetch/formToTelegram.js";
+import AppFeedbackTnx from '@/components/AppFeedbackTnx.vue'
+import fetchFromToTelegram from '@/fetch/formToTelegram.js'
 
 const productsStore = useProductStore()
 const inStock = computed(() => productsStore.inStock)

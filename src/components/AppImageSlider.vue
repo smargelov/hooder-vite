@@ -3,9 +3,9 @@ import {Swiper, SwiperSlide} from 'swiper/vue'
 import {laptop} from '@/helpers/breakpoints'
 // Import Swiper styles
 import 'swiper/css'
-import "swiper/css/lazy"
-import "swiper/css/scrollbar"
-import "swiper/css/navigation"
+import 'swiper/css/lazy'
+import 'swiper/css/scrollbar'
+import 'swiper/css/navigation'
 
 // import required modules
 import {Lazy, Navigation, Scrollbar} from 'swiper'

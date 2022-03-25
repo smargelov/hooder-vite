@@ -1,6 +1,6 @@
 import {defineStore} from 'pinia'
 import {catalog} from '@/db.json'
-import {productCount} from "@/helpers/helpers.js";
+import {productCount} from '@/helpers/helpers.js'
 
 export const useProductStore = defineStore('products', {
     state: () => ({
