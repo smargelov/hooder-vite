@@ -47,7 +47,7 @@ jobs:
         run: npm run build
 
       - name: Add telegram token ✒️
-        run: sed -i "" "s|TELEGRAM_TOKEN|${{ secrets.TELEGRAM_TOKEN }}|g" dist/send.php && sed -i "" "s|CHAT_TG_ID|${{ secrets.CHAT_TG_ID }}|g" dist/send.php
+        run: sed -i "s/TELEGRAM_TOKEN/${{ secrets.TELEGRAM_TOKEN }}/g" dist/send.php && sed -i "s/CHAT_TG_ID/${{ secrets.CHAT_TG_ID }}/g" dist/send.php
 
       - name: Deploy to Server 🚀
         run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . smargelov@${{ secrets.SSH_KNOWN_HOSTS }}:${{ secrets.SSH_DIR }}
