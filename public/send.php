@@ -22,8 +22,8 @@ $arr = [
     'Страница: ' => 'https://hooder.ru' . $page
 ];
 
-$token = "717731562:AAFnAxAarCnJI14ZpCVE46R_30z7LjgYSTo";
-$chat_id = "-357124271";
+$token = "TELEGRAM_TOKEN";
+$chat_id = "CHAT_TG_ID";
 
 $sitename = "HOODER";
 $pagetitle = "Новый запрос с сайта \"$sitename\"";
