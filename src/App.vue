@@ -8,6 +8,7 @@ import AppModal from '@/components/AppModal.vue'
 import AppFeedbackForm from '@/components/AppFeedbackForm.vue'
 import AppFeedbackTnx from '@/components/AppFeedbackTnx.vue'
 import fetchFromToTelegram from '@/fetch/formToTelegram.js'
+import AppFooter from '@/components/AppFooter.vue'
 
 const productsStore = useProductStore()
 const inStock = computed(() => productsStore.inStock)
@@ -54,6 +55,7 @@ TheHelloText(
   @open-form-modal="openFormModal"
 )
 router-view
+AppFooter
 AppModal(
   :open="isFormModalOpen"
   @close="closeFormModal"
